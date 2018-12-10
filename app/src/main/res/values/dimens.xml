@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="common_16">16dp</dimen>
+    <dimen name="small_et_width">100dp</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">kasptest</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_request">Generate New Request</string>
+    <string name="request_count">Current Request count: %d</string>
+    <string name="request_max_time">Request max time in ms</string>
+    <string name="request_generate_time">Request generate time delay max in ms</string>
+    <string name="request_execute_delay_max_time_text">Request execute delay max time in ms</string>
+</resources>

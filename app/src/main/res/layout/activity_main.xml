@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_16"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/main_button_new_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_request"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/current_executed_request_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_button_new_request"
+        tools:text="Current request count: 0"/>
+
+    <TextView
+        android:id="@+id/request_max_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/request_max_time"
+        app:layout_constraintBottom_toBottomOf="@id/request_max_time_et"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/request_max_time_et"
+        />
+
+    <EditText
+        android:id="@+id/request_max_time_et"
+        android:layout_width="@dimen/small_et_width"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/current_executed_request_count"/>
+
+    <TextView
+        android:id="@+id/request_generate_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/request_generate_time"
+        app:layout_constraintBottom_toBottomOf="@id/request_generate_time_et"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/request_generate_time_et"
+        />
+
+    <EditText
+        android:id="@+id/request_generate_time_et"
+        android:layout_width="@dimen/small_et_width"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/request_max_time_et"/>
+
+    <TextView
+        android:id="@+id/request_execute_delay_max_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/request_execute_delay_max_time_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/request_execute_delay_max_time_et"
+        app:layout_constraintBottom_toBottomOf="@+id/request_execute_delay_max_time_et"
+        />
+
+    <EditText
+        android:id="@+id/request_execute_delay_max_time_et"
+        android:layout_width="@dimen/small_et_width"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/request_generate_time_et"/>
+
+</android.support.constraint.ConstraintLayout>
