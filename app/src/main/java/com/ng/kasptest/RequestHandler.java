@@ -200,14 +200,12 @@ public class RequestHandler implements Consumer {
 
         private RequestWrapper() throws IllegalAccessException {
             mFinishCallback = null;
-            mSettings = null;
             mTime = 0;
             throw new IllegalAccessException("Illegal constructor!");
         }
 
         public RequestWrapper(FinishCallback finishCallback, Settings settings, Random random) {
             this.mFinishCallback = finishCallback;
-            this.mSettings = settings;
             if (settings.requestMaxTime > 0) {
                 mTime = random.nextInt(settings.requestMaxTime);
             } else {
@@ -216,7 +214,6 @@ public class RequestHandler implements Consumer {
         }
 
         private final FinishCallback mFinishCallback;
-        private final Settings mSettings;
         private final int mTime;
 
         @Override
