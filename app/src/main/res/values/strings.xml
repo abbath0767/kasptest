@@ -6,4 +6,8 @@
     <string name="request_max_time">Request max time in ms</string>
     <string name="request_generate_time">Request generate time delay max in ms</string>
     <string name="request_execute_delay_max_time_text">Request execute delay max time in ms</string>
+    <string name="stop">stop</string>
+    <string name="countdown_time">Countdown time: %d left</string>
+    <string name="status_active">Status: active</string>
+    <string name="status_stop">Status: stopped</string>
 </resources>

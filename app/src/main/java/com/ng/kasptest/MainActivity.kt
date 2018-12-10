@@ -7,12 +7,8 @@ import android.text.TextWatcher
 import android.util.Log
 import com.ng.kasptest.model.Stopper
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
-    private var isStop = false
-    private val random = Random()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +26,13 @@ class MainActivity : AppCompatActivity() {
         request_generate_time_et.setText(Settings.requestGenerateMaxtime.toString())
         request_execute_delay_max_time_et.setText(Settings.requestExecuteDelayMaxTime.toString())
         current_executed_request_count.text = getString(R.string.request_count, 0)
+        timer.text = getString(R.string.countdown_time, Settings.countDownTime)
+        status.text = getString(R.string.status_stop)
     }
 
     private fun setOnClickListeners() {
-        main_button_new_request.setOnClickListener { generateNewRequest(isStop) }
+        main_button_new_request.setOnClickListener { generateNewRequest(false) }
+        stop.setOnClickListener { stop() }
     }
 
     private fun setOnEditTextListeners() {
@@ -89,8 +88,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribeToData() {
         RequestHandler.subscribeToRequestCount { count ->
-            Log.d("TAG", "New executed request count: $count")
             current_executed_request_count.text = getString(R.string.request_count, count)
+        }
+        RequestHandler.subscribeToCountDown { countDownTime, isStopped ->
+            timer.text = getString(R.string.countdown_time, countDownTime)
+            status.text =
+                    if (!isStopped) getString(R.string.status_active)
+                    else getString(R.string.status_stop)
         }
     }
 
@@ -101,5 +105,9 @@ class MainActivity : AppCompatActivity() {
 
             RequestHandler.processRequest(request, stopper)
         }).start()
+    }
+
+    private fun stop() {
+        RequestHandler.processRequest(null, Stopper(true))
     }
 }

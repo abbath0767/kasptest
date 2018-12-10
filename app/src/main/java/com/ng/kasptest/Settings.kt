@@ -4,4 +4,5 @@ object Settings {
     var requestMaxTime = 10000
     var requestGenerateMaxtime = 5000
     var requestExecuteDelayMaxTime = 5000
+    var countDownTime: Int = 30
 }
