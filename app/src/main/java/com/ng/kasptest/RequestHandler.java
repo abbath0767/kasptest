@@ -27,7 +27,7 @@ public class RequestHandler implements Consumer {
         else
             numCores = processorCount;
 
-        reinitExecгtor();
+        reinitExecutor();
 
         this.mRandom = random;
         this.mSettings = settings;
@@ -47,7 +47,7 @@ public class RequestHandler implements Consumer {
     private final Random mRandom;
     private Thread mCountDownThread;
 
-    private void reinitExecгtor() {
+    private void reinitExecutor() {
         mExecutor = new ThreadPoolExecutor(2, numCores, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
     }
 
@@ -92,7 +92,7 @@ public class RequestHandler implements Consumer {
     private void executeRequest(Request request) {
         if (mExecutor.isShutdown() || mExecutor.isTerminating()) {
             if (!mIsStopped.get()) {
-                reinitExecгtor();
+                reinitExecutor();
             }
         }
 
